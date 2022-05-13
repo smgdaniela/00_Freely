@@ -21,18 +21,20 @@
                 <pointmax x="25" y="0" z="7" />
             </definition>
             <commands>
-			    <list name="arm" printcall="false">
+			   <!--
+			   <list name="arm" printcall="false">
 				<setdrawmode mode="full" />
                     <setmkbound mk="0" />
                     <drawcylinder radius="0.025" mask="1">
-                        <point x="8" y="0" z="3.3" />
-                        <point x="3.7" y="0" z="5" />
+                        <point x="8" y="0" z="2.6" />
+                        <point x="6.37" y="0" z="4" />
                     </drawcylinder>
 				</list>
+				-->
                 <list name="Element" printcall="false">
 				<setdrawmode mode="full" />
 						<setmkbound mk="1" />
-                    <drawfilestl file="sphere.stl">
+                    <drawfilestl file="sphere_arm.stl">
                         <!-- <drawscale x="0.001" y="0.001" z="0.001" /> -->
                         <drawmove x="0" y="1" z="0.7" />
                     </drawfilestl>
@@ -66,8 +68,8 @@
                         <point x="0" y="1" z="5" />
                     </drawprism>
                     <!-- First element -->
-                    <setmkbound mk="0" />
-                    <runlist name="arm" />
+                    <!--<setmkbound mk="0" />
+                    <runlist name="arm" /> -->
 					<setmkbound mk="1" />
                     <runlist name="Element" />
                     <!-- Second element 
@@ -124,7 +126,7 @@
             <chrono>
                 <_savedata value="0.02" comment="Saves CSV with data exchange for each time interval (0=all steps)" />
                 <schemescale value="1" comment="Scale used to create the initial scheme of Chrono objects (default=1)" />
-                <bodyfloating id="arm" mkbound="0" />
+                <!--<bodyfloating id="arm" mkbound="0" />-->
 				<bodyfloating id="Element" mkbound="1" modelfile="AutoActual"/>
                 
 				
@@ -139,19 +141,21 @@
                 </link_pointline> -->
 				
 				
-                <link_hinge idbody1="arm">
-                    <rotpoint x="3.7" y="0" z="5" comment="Point for rotation" />
+                <link_hinge idbody1="Element">
+                    <rotpoint x="6.375" y="0" z="4.65" comment="Point for rotation" />
                     <rotvector x="0" y="1" z="0" comment="Vector direction for rotation" />
                     <stiffness value="0" comment="Torsional stiffness [Nm/rad]" />
                     <damping value="0" comment="Torsional damping [Nms/rad]" />
                 </link_hinge> 
 				
+				<!--
 				<link_hinge idbody1="arm" idbody2="Element">
                     <rotpoint x="8" y="0" z="3.3" comment="Point for rotation" />
                     <rotvector x="0" y="1" z="0" comment="Vector direction for rotation" />
                     <stiffness value="0" comment="Torsional stiffness [Nm/rad]" />
                     <damping value="0" comment="Torsional damping [Nms/rad]" />
                 </link_hinge> 
+				-->
 				
 				<!-- <link_spheric idbody1="arm">
                     <rotpoint x="3.7" y="0" z="5" comment="Point for rotation" />
