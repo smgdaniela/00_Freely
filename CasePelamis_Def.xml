@@ -32,10 +32,11 @@
 				</list>
 				-->
                 <list name="Element" printcall="false">
-				<setdrawmode mode="full" />
-						<setmkbound mk="1" />
-                    <drawfilestl file="sphere_arm.stl">
-                        <!-- <drawscale x="0.001" y="0.001" z="0.001" /> -->
+				<setdrawmode mode="full" /> 
+						<setmkbound mk="1" /> 
+                    <drawfilestl file="solid.stl">
+					<!--<drawfilestl file="sphere_arm.stl">
+                         <drawscale x="0.001" y="0.001" z="0.001" /> -->
                         <drawmove x="0" y="1" z="0.7" />
                     </drawfilestl>
                     <fillbox x="8" y="-1" z="2.3">
@@ -43,7 +44,7 @@
                         <point x="-1" y="-1" z="0" />
                         <size x="30" y="2" z="6" />
                     </fillbox>
-                    <move x="1.3" y="0" z="0" />
+                    <!-- <move x="1.3" y="0" z="0" /> -->
                 </list>
                 <mainlist>
                     <setshapemode>real | bound</setshapemode>
@@ -98,20 +99,20 @@
             </commands>
         </geometry>
         <floatings>
-            <!--
-			<floating mkbound="0" relativeweight="0.5" />
-            <floating mkbound="1" relativeweight="0.5" /> -->
-			<floating mkbound="0">
-				<massbody value="2.7" />  
-				<center x="0" y="0" z="0.33" />
-                <inertia x="1.0" y="1.0" z="13.1" />
+            <!--<floating mkbound="0" relativeweight="0.5" />
+			<floating mkbound="1" relativeweight="0.5" /> -->
+			<floating mkbound="1">
+				<massbody value="220" />  
+				<center x="8.85" y="0" z="2.9" />.
+                <inertia x="1.0" y="1.46" z="1.0" />
 			</floating>
 			
-            <floating mkbound="1">
+            <!--<floating mkbound="0">
 				<center x="0" y="0" z="0.33" />
                 <inertia x="1.0" y="1.0" z="13.1" />
 				<massbody value="2.7" />  
-			</floating>
+			</floating> -->
+			
         </floatings>
         <motion>
             <objreal ref="10">
@@ -222,7 +223,7 @@
             <parameter key="DtFixed" value="0" comment="Fixed Dt value. Use 0 to disable (default=disabled)" units_comment="seconds" />
             <parameter key="DtFixedFile" value="NONE" comment="Dt values are loaded from file. Use NONE to disable (default=disabled)" units_comment="milliseconds (ms)" />
             <parameter key="DtAllParticles" value="0" comment="Velocity of particles used to calculate DT. 1:All, 0:Only fluid/floating (default=0)" />
-            <parameter key="TimeMax" value="0.5" comment="Time of simulation" units_comment="seconds" />
+            <parameter key="TimeMax" value="1.0" comment="Time of simulation" units_comment="seconds" />
             <parameter key="TimeOut" value="0.05" comment="Time out data" units_comment="seconds" />
             <parameter key="PartsOutMax" value="1" comment="%/100 of fluid particles allowed to be excluded from domain (default=1)" units_comment="decimal" />
             <parameter key="RhopOutMin" value="700" comment="Minimum rhop valid (default=700)" units_comment="kg/m^3" />
